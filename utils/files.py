@@ -1,6 +1,8 @@
 import os
 
 class Files():
+
+	@staticmethod
 	def create_file(name: str, content: str):
 		try:
 			value = ""
@@ -19,6 +21,7 @@ class Files():
 			print('Error #00003')
 			return False
 
+	@staticmethod
 	def emulate(filename: str):
 		try:
 			emulate1 = os.popen(f'python3 {filename} >> tests/emulate1')
@@ -27,6 +30,7 @@ class Files():
 			print(e)
 			print('Error #00002')
 
+	@staticmethod
 	def verif():
 		try:
 			with open('tests/emulate1', 'r') as f1:
@@ -44,6 +48,7 @@ class Files():
 			print('Error #00001')
 			return {'res': False, 'msg': str(e)}
 
+	@staticmethod
 	def clean():
 		try:
 			os.popen('rm data/* tests/*').read()
